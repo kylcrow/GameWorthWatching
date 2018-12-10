@@ -14,6 +14,9 @@ namespace GameWorthWatching.Controllers
             //NBAScoreboardModel scoreboardModel = new NBAScoreboardModel("12/02/2018");
             NBAScoreboardModel scoreboardModel = new NBAScoreboardModel(DateTime.Now.AddDays(-1));
 
+            // To do: store this in a long term cache and start using it globally
+            NBATeamDetailsModel model = new NBATeamDetailsModel(DateTime.Now);
+
             return View(scoreboardModel);
         }
 

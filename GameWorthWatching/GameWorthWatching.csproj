@@ -150,13 +150,15 @@
     <Compile Include="Models\NBAGameModel.cs" />
     <Compile Include="Models\NBAGameTeamModel.cs" />
     <Compile Include="Models\NBAScoreboardModel.cs" />
+    <Compile Include="Models\NBATeamConfigModel.cs" />
+    <Compile Include="Models\NBATeamDetailsModel.cs" />
+    <Compile Include="Models\NBATeamModel.cs" />
     <Compile Include="Models\NBA_internalModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\images\teamlogos\pelicans.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -243,6 +245,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -1,0 +1,56 @@
+﻿@model GameWorthWatching.Models.NBAScoreboardModel
+
+<div id="ScoreboardInfo">
+    @if (!Model.NBAGamesModel.Any())
+    {
+        <div>Data for this date is unavailable.</div>
+    }
+    @foreach (var item in Model.NBAGamesModel)
+    {
+        <div>
+            @item.HomeTeam.TriCode (@item.HomeTeam.Record) at @item.AwayTeam.TriCode (@item.AwayTeam.Record)
+        </div>
+        <div>
+            @if (item.IsGameOver)
+            {
+                <text>Worth Watching?</text>
+                if (item.IsGameWorthWatching)
+                {
+                    <text><label class="yes-class">Yes</label></text>
+                }
+                else
+                {
+                    <text><label class="no-class">No</label></text>
+                }
+            }
+            else if (item.IsGameInFuture)
+            {
+                <label class="worth-watching-message">@item.StartMessage</label>
+            }
+            else if (item.IsGameActive)
+            {
+                <label class="worth-watching-message">@item.ActiveMessage</label>
+            }
+        </div>
+        <br />
+        if (false)
+        {
+        <div>
+            IsGameWorthWatching = @item.IsGameWorthWatching<br />
+            IsLargeComback = @item.IsLargeComback()<br />
+            IsBuzzerBeater = @item.IsBuzzerBeater<br />
+            GameWentToOvertime = @item.GameWentToOverTime()
+            IsCloseGame = @item.IsCloseGame()<br />
+            Q1 Score Home @item.HomeTeam.Q1Score  Q1 Score Away @item.AwayTeam.Q1Score<br />
+            Q2 Score Home @item.HomeTeam.Q2Score  Q2 Score Away @item.AwayTeam.Q2Score<br />
+            Q3 Score Home @item.HomeTeam.Q3Score  Q3 Score Away @item.AwayTeam.Q3Score<br />
+            Q4 Score Home @item.HomeTeam.Q4Score  Q4 Score Away @item.AwayTeam.Q4Score<br />
+            Score at Q1  @item.HomeTeam.Q1Score - @item.AwayTeam.Q1Score<br />
+            Score at Q2  @(item.HomeTeam.Q1Score + item.HomeTeam.Q2Score) - @(item.AwayTeam.Q1Score + item.AwayTeam.Q2Score)<br />
+            Score at Q3  @(item.HomeTeam.Q1Score + item.HomeTeam.Q2Score + item.HomeTeam.Q3Score) - @(item.AwayTeam.Q1Score + item.AwayTeam.Q2Score + item.AwayTeam.Q3Score)<br />
+            Final Score  @item.HomeTeam.Score - @item.AwayTeam.Score<br />
+            <br /><br /><br /><br />
+        </div>
+        }
+    }
+</div>

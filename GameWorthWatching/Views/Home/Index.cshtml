@@ -1,0 +1,30 @@
+﻿@model GameWorthWatching.Models.NBAScoreboardModel
+@{
+    ViewBag.Title = "Worth Watching?";
+}
+
+<div>
+    <p>Date: <input type="text" id="datepicker"></p>
+
+    @Html.Partial("_NBASchedule")
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#datepicker').datepicker({
+            onSelect: function (dateStr) {
+                var date = $(this).datepicker('getDate').toJSON();
+                UpdateSchedule(date);
+            }
+        });
+
+        $("#datepicker").datepicker("setDate", -1);
+    });
+
+    function UpdateSchedule(dateStr) {
+        var url = '@Url.Action("GetSchedule", "Home")';
+        $.post(url, { date: dateStr }, function (data) {
+            $("#ScoreboardInfo").html(data);
+        });
+    }
+</script>

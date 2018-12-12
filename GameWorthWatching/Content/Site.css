@@ -5,7 +5,7 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    width: 300px;
+    width: 550px;
     position: absolute;
     top: 50px;
     bottom: 0;
@@ -34,4 +34,144 @@ textarea {
 
 .no-class {
     color: red;
+}
+.scoreboard-container {
+    width: 602px;
+    height: 107px;
+    float: left;
+    margin-bottom: 20px;
+}
+.scoreboard-game-details {
+    border: 1px solid #cbccce;
+    width: 220px;
+    height: 106px;
+    float: left;
+}
+.scoreboard-worth-watching-container {
+    border-top: 1px solid #cbccce;
+    border-right: 1px solid #cbccce;
+    border-bottom: 1px solid #cbccce;
+    width: 160px;
+    height: 106px;
+    float: left;
+}
+.scoreboard-spoiler-container {
+    width: 200px;
+    height: 100px;
+    float: left;
+}
+.scoreboard-logo-container {
+    display: table-cell;
+    height: 50px;
+    margin: 0 auto;
+    min-width: 50px;
+    overflow: hidden;
+    padding-right: 4px;
+    position: relative;
+    vertical-align: middle;
+    width: 50px;
+}
+.scoreboard-team-info {
+    display: table-cell;
+    font-size: 11px;
+    line-height: 0.1;
+    padding-left: 9px;
+    vertical-align: top;
+    width: 100%;
+}
+.show-scores-button-container {
+    display: table-cell;
+}
+.show-scores-button {
+    border: none;
+    background-color: #0043a7;
+    height: 25px;
+    width: 70px;
+    border-radius: 2px;
+    color: white;
+}
+.show-scores-button:active {
+    background-color: #001e4a;
+}
+.not-worth-watching {
+    background-color: #bd1b1b;
+    color: white;
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 100px;
+}
+.worth-watching {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 100px;
+}
+.show-why-button-container {
+    margin: 13px 40px 40px 7px;
+}
+.show-why-button {
+    border: none;
+    background-color: #0043a7;
+    height: 25px;
+    width: 200px;
+    border-radius: 2px;
+    color: white;
+    margin-left: 14px;
+}
+.show-why-button:active {
+    background-color: #001e4a;
+}
+.show-why-details {
+    display: none;
+}
+.show-scores-score {
+    display: none;
+    margin-left: 20px;
+    font-size: large;
+}
+.table-team-detail-padding {
+    padding-right: 15px;
+    width: 125px;
+}
+.logo-image {
+    height: 36px;
+    width: 36px;
+    margin-left: 6px;
+}
+.date-button-container {
+    width: 400px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+}
+.prev-date {
+    float: left;
+}
+.next-date {
+    margin-left: 104px;
+}
+.date-button {
+    border: none;
+    background-color: #0043a7;
+    height: 25px;
+    width: 45px;
+    border-radius: 2px;
+    color: white;
+}
+.date-button:active {
+    background-color: #001e4a;
+}
+.scoreboard-date-container
+{
+    margin-left: 100px;
+}
+.worth-watching-message {
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    line-height: 100px;
 }

@@ -9,7 +9,6 @@ namespace GameWorthWatching.Models
     public class NBAGameModel
     {
         private string _activeMessage = "The game is on now!";
-        private string _notStartedMessage = "The game starts at {0}";
 
         public NBAGameModel() { }
 
@@ -35,7 +34,7 @@ namespace GameWorthWatching.Models
         {
             get
             {
-                return string.Format(_notStartedMessage, this.StartTime.ToLocalTime().ToShortTimeString());
+                return string.Format(this.StartTime.ToLocalTime().ToShortTimeString());
             }
         }
 

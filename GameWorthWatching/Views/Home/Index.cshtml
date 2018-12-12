@@ -4,8 +4,17 @@
 }
 
 <div>
-    <p>Date: <input type="text" id="datepicker"></p>
-
+    <div class="scoreboard-date-container">
+        <input type="text" id="datepicker">
+        <div class="date-button-container">
+            <div class="prev-date">
+                <button class="date-button" onclick="PreviousDate()">Prev</button>
+            </div>
+            <div class="next-date">
+                <button class="date-button" onclick="NextDate()">Next</button>
+            </div>
+        </div>
+    </div>
     @Html.Partial("_NBASchedule")
 </div>
 
@@ -26,5 +35,19 @@
         $.post(url, { date: dateStr }, function (data) {
             $("#ScoreboardInfo").html(data);
         });
+    }
+
+    function PreviousDate() {
+        var date = $('#datepicker').datepicker('getDate');
+        date.setTime(date.getTime() - (1000 * 60 * 60 * 24))
+        $('#datepicker').datepicker("setDate", date);
+        UpdateSchedule(date.toJSON());
+    }
+
+    function NextDate() {
+        var date = $('#datepicker').datepicker('getDate');
+        date.setTime(date.getTime() + (1000 * 60 * 60 * 24))
+        $('#datepicker').datepicker("setDate", date);
+        UpdateSchedule(date.toJSON());
     }
 </script>

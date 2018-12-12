@@ -7,50 +7,151 @@
     }
     @foreach (var item in Model.NBAGamesModel)
     {
-        <div>
-            @item.HomeTeam.TriCode (@item.HomeTeam.Record) at @item.AwayTeam.TriCode (@item.AwayTeam.Record)
-        </div>
-        <div>
-            @if (item.IsGameOver)
-            {
-                <text>Worth Watching?</text>
-                if (item.IsGameWorthWatching)
+        <div class="scoreboard-container">
+            <div class="scoreboard-game-details">
+                <table>
+                    <tr>
+                        <td>
+                            <div class="scoreboard-logo-container">
+                                @{var imgNameAway = $"Content/images/{item.AwayTeam.TriCode}.png";}
+                                <img class="logo-image" src="~/@imgNameAway" />
+                            </div>
+                            <div class="scoreboard-team-info">
+                                <h5>@item.AwayTeam.TriCode</h5>
+                                <div><p>(@item.AwayTeam.Record)</p></div>
+                            </div>
+                        </td>
+                        <td>
+                            @if (item.IsGameOver)
+                            {
+                                <div class="show-scores-button-container"><button class="show-scores-button" onclick="ShowScoresClick(this)">Scores</button></div>
+                                <div class="show-scores-score">@item.AwayTeam.Score</div>
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="table-team-detail-padding">
+                            <div class="scoreboard-logo-container">
+                                @{var imgNameHome = $"Content/images/{item.HomeTeam.TriCode}.png";}
+                                <img class="logo-image" src="~/@imgNameHome" />
+                            </div>
+                            <div class="scoreboard-team-info">
+                                <h5>@item.HomeTeam.TriCode</h5>
+                                <div><p>(@item.HomeTeam.Record)</p></div>
+                            </div>
+                        </td>
+                        <td>
+                            @if (item.IsGameOver)
+                            {
+                                <div class="show-scores-score">@item.HomeTeam.Score</div>
+                            }
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="scoreboard-worth-watching-container">
+                @if (item.IsGameOver)
                 {
-                    <text><label class="yes-class">Yes</label></text>
+                    if (item.IsGameWorthWatching)
+                    {
+                        <div class="worth-watching">Worth Watching</div>
+                    }
+                    else
+                    {
+                        <div class="not-worth-watching">Not Worth Watching</div>
+                    }
                 }
-                else
+                else if (item.IsGameInFuture)
                 {
-                    <text><label class="no-class">No</label></text>
+                    <label class="worth-watching-message">@item.StartMessage</label>
                 }
-            }
-            else if (item.IsGameInFuture)
-            {
-                <label class="worth-watching-message">@item.StartMessage</label>
-            }
-            else if (item.IsGameActive)
-            {
-                <label class="worth-watching-message">@item.ActiveMessage</label>
-            }
+                else if (item.IsGameActive)
+                {
+                    <label class="worth-watching-message">@item.ActiveMessage</label>
+                }
+            </div>
+            <div class="scoreboard-spoiler-container">
+                <div class="show-why-button-container">
+                    @if (item.IsGameWorthWatching)
+                    {
+                        <button class="show-why-button" onclick="ShowWhyClick(this)">Show Why</button>
+                    }
+                    <div class="show-why-details">
+                        @if (item.IsCloseGame())
+                        {
+                            <p>Close Game</p>
+                        }
+                        @if (item.IsLargeComback())
+                        {
+                            <p>Large Comback</p>
+                        }
+                        @if (item.IsBuzzerBeater)
+                        {
+                            <p>Buzzer Beater</p>
+                        }
+                        @if (item.GameWentToOverTime())
+                        {
+                            <p>Overtime Game</p>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
+
         <br />
         if (false)
         {
-        <div>
-            IsGameWorthWatching = @item.IsGameWorthWatching<br />
-            IsLargeComback = @item.IsLargeComback()<br />
-            IsBuzzerBeater = @item.IsBuzzerBeater<br />
-            GameWentToOvertime = @item.GameWentToOverTime()
-            IsCloseGame = @item.IsCloseGame()<br />
-            Q1 Score Home @item.HomeTeam.Q1Score  Q1 Score Away @item.AwayTeam.Q1Score<br />
-            Q2 Score Home @item.HomeTeam.Q2Score  Q2 Score Away @item.AwayTeam.Q2Score<br />
-            Q3 Score Home @item.HomeTeam.Q3Score  Q3 Score Away @item.AwayTeam.Q3Score<br />
-            Q4 Score Home @item.HomeTeam.Q4Score  Q4 Score Away @item.AwayTeam.Q4Score<br />
-            Score at Q1  @item.HomeTeam.Q1Score - @item.AwayTeam.Q1Score<br />
-            Score at Q2  @(item.HomeTeam.Q1Score + item.HomeTeam.Q2Score) - @(item.AwayTeam.Q1Score + item.AwayTeam.Q2Score)<br />
-            Score at Q3  @(item.HomeTeam.Q1Score + item.HomeTeam.Q2Score + item.HomeTeam.Q3Score) - @(item.AwayTeam.Q1Score + item.AwayTeam.Q2Score + item.AwayTeam.Q3Score)<br />
-            Final Score  @item.HomeTeam.Score - @item.AwayTeam.Score<br />
-            <br /><br /><br /><br />
-        </div>
+            <div>
+                IsGameWorthWatching = @item.IsGameWorthWatching<br />
+                IsLargeComback = @item.IsLargeComback()<br />
+                IsBuzzerBeater = @item.IsBuzzerBeater<br />
+                GameWentToOvertime = @item.GameWentToOverTime()
+                IsCloseGame = @item.IsCloseGame()<br />
+                Q1 Score Home @item.HomeTeam.Q1Score  Q1 Score Away @item.AwayTeam.Q1Score<br />
+                Q2 Score Home @item.HomeTeam.Q2Score  Q2 Score Away @item.AwayTeam.Q2Score<br />
+                Q3 Score Home @item.HomeTeam.Q3Score  Q3 Score Away @item.AwayTeam.Q3Score<br />
+                Q4 Score Home @item.HomeTeam.Q4Score  Q4 Score Away @item.AwayTeam.Q4Score<br />
+                Score at Q1  @item.HomeTeam.Q1Score - @item.AwayTeam.Q1Score<br />
+                Score at Q2  @(item.HomeTeam.Q1Score + item.HomeTeam.Q2Score) - @(item.AwayTeam.Q1Score + item.AwayTeam.Q2Score)<br />
+                Score at Q3  @(item.HomeTeam.Q1Score + item.HomeTeam.Q2Score + item.HomeTeam.Q3Score) - @(item.AwayTeam.Q1Score + item.AwayTeam.Q2Score + item.AwayTeam.Q3Score)<br />
+                Final Score  @item.HomeTeam.Score - @item.AwayTeam.Score<br />
+                <br /><br /><br /><br />
+            </div>
         }
     }
 </div>
+
+<script type="text/javascript">
+    function ShowWhyClick(element) {
+        HideOnceClicked(element);
+        ShowWhy(element);
+    }
+
+    function ShowWhy(element) {
+        var detailsElement = element.parentElement.children[1].style.display = "block";
+    }
+
+    function ShowScore(element) {
+        var scoresElements = element.parentElement.parentElement.parentElement.parentElement.getElementsByClassName("show-scores-score");
+        var didHomeTeamWin = parseInt(scoresElements[0].innerText) > parseInt(scoresElements[1].innerText);
+        if (didHomeTeamWin) {
+            scoresElements[0].style.fontWeight = "bold";
+        }
+        else {
+            scoresElements[1].style.fontWeight = "bold";
+        }
+
+        for (i = 0; i < scoresElements.length; i++) {
+            scoresElements[i].style.display = "block";
+        }
+    }
+
+    function ShowScoresClick(element) {
+        HideOnceClicked(element);
+        ShowScore(element);
+    }
+
+    function HideOnceClicked(element) {
+        element.style.display = "none"
+    }
+</script>

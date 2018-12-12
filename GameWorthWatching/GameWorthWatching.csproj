@@ -159,6 +159,36 @@
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ATL.png" />
+    <Content Include="Content\images\BKN.png" />
+    <Content Include="Content\images\BOS.png" />
+    <Content Include="Content\images\CHA.png" />
+    <Content Include="Content\images\CHI.png" />
+    <Content Include="Content\images\CLE.png" />
+    <Content Include="Content\images\DAL.png" />
+    <Content Include="Content\images\DEN.png" />
+    <Content Include="Content\images\DET.png" />
+    <Content Include="Content\images\GSW.png" />
+    <Content Include="Content\images\HOU.png" />
+    <Content Include="Content\images\IND.png" />
+    <Content Include="Content\images\LAC.png" />
+    <Content Include="Content\images\LAL.png" />
+    <Content Include="Content\images\MEM.png" />
+    <Content Include="Content\images\MIA.png" />
+    <Content Include="Content\images\MIL.png" />
+    <Content Include="Content\images\MIN.png" />
+    <Content Include="Content\images\NOP.png" />
+    <Content Include="Content\images\NYK.png" />
+    <Content Include="Content\images\OKC.png" />
+    <Content Include="Content\images\ORL.png" />
+    <Content Include="Content\images\PHI.png" />
+    <Content Include="Content\images\PHX.png" />
+    <Content Include="Content\images\POR.png" />
+    <Content Include="Content\images\SAS.png" />
+    <Content Include="Content\images\SAC.png" />
+    <Content Include="Content\images\TOR.png" />
+    <Content Include="Content\images\UTA.png" />
+    <Content Include="Content\images\WAS.png" />
     <Content Include="Content\themes\base\accordion.css" />
     <Content Include="Content\themes\base\all.css" />
     <Content Include="Content\themes\base\autocomplete.css" />
@@ -245,7 +275,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Content\images\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

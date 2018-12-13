@@ -5,13 +5,14 @@
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
-    width: 550px;
+    width: 370px;
     position: absolute;
     top: 50px;
     bottom: 0;
     left: 0;
     right: 0;
     margin: auto;
+    padding-left: 8px;
 }
 
 /* Override the default bootstrap behavior where horizontal description lists 
@@ -36,14 +37,15 @@ textarea {
     color: red;
 }
 .scoreboard-container {
-    width: 602px;
+    width: 340px;
     height: 107px;
-    float: left;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    clear: both;
+    margin-bottom: 5px;
 }
 .scoreboard-game-details {
     border: 1px solid #cbccce;
-    width: 220px;
+    width: 209px;
     height: 106px;
     float: left;
 }
@@ -51,14 +53,11 @@ textarea {
     border-top: 1px solid #cbccce;
     border-right: 1px solid #cbccce;
     border-bottom: 1px solid #cbccce;
-    width: 160px;
+    width: 129px;
     height: 106px;
     float: left;
 }
 .scoreboard-spoiler-container {
-    width: 200px;
-    height: 100px;
-    float: left;
 }
 .scoreboard-logo-container {
     display: table-cell;
@@ -75,7 +74,6 @@ textarea {
     display: table-cell;
     font-size: 11px;
     line-height: 0.1;
-    padding-left: 9px;
     vertical-align: top;
     width: 100%;
 }
@@ -100,7 +98,7 @@ textarea {
     height: 100%;
     width: 100%;
     text-align: center;
-    line-height: 100px;
+    padding-top: 29px;
 }
 .worth-watching {
     background-color: green;
@@ -109,19 +107,31 @@ textarea {
     height: 100%;
     width: 100%;
     text-align: center;
-    line-height: 100px;
+    padding-top: 40px;
 }
 .show-why-button-container {
-    margin: 13px 40px 40px 7px;
+    width: 338px;
+    text-align: center;
+    border: 1px solid lightgray;
+    border-top-color: lightgray;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: lightgray;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top: none;
+    margin-top: -11px;
+    min-height: 46px;
+    padding-top: 13px;
 }
 .show-why-button {
     border: none;
     background-color: #0043a7;
     height: 25px;
-    width: 200px;
+    width: 310px;
     border-radius: 2px;
     color: white;
-    margin-left: 14px;
+    margin-left: 2px;
 }
 .show-why-button:active {
     background-color: #001e4a;
@@ -145,7 +155,6 @@ textarea {
 }
 .date-button-container {
     width: 400px;
-    padding-bottom: 20px;
     padding-top: 5px;
 }
 .prev-date {

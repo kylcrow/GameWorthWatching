@@ -58,7 +58,7 @@ namespace GameWorthWatching.Models
         {
             get
             {
-                return this.StartTime > DateTime.Now.ToUniversalTime();
+                return this.StartTime.ToLocalTime() > DateTime.Now.ToUniversalTime();
             }
         }
 
@@ -74,7 +74,8 @@ namespace GameWorthWatching.Models
         {
             get
             {
-                return (this.StartTime - DateTime.Now).TotalDays < 300;
+                TimeSpan span = DateTime.Now.ToUniversalTime() - this.StartTime;
+                return  span.Days > 300;
             }
         }
 

@@ -70,35 +70,39 @@
                     <label class="worth-watching-message">@item.ActiveMessage</label>
                 }
             </div>
-            <div class="scoreboard-spoiler-container">
+        </div>
+        <div class="scoreboard-spoiler-container">
+            @if (item.IsGameWorthWatching)
+            {
                 <div class="show-why-button-container">
-                    @if (item.IsGameWorthWatching)
-                    {
-                        <button class="show-why-button" onclick="ShowWhyClick(this)">Show Why</button>
-                    }
+                    <button class="show-why-button" onclick="ShowWhyClick(this)">Show Why</button>
                     <div class="show-why-details">
                         @if (item.IsCloseGame())
                         {
-                            <p>Close Game</p>
+                            <div>Close Game</div>
                         }
                         @if (item.IsLargeComback())
                         {
-                            <p>Large Comback</p>
+                            <div>
+                                Large Comback
+                            </div>
                         }
                         @if (item.IsBuzzerBeater)
                         {
-                            <p>Buzzer Beater</p>
+                            <div>
+                                Buzzer Beater
+                            </div>
                         }
                         @if (item.GameWentToOverTime())
                         {
-                            <p>Overtime Game</p>
+                            <div>
+                                Overtime Game
+                            </div>
                         }
                     </div>
                 </div>
-            </div>
+            }
         </div>
-
-        <br />
         if (false)
         {
             <div>
